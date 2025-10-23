@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBNEAaHly0Jb7RMeCSaFJwfQlTlB7i4UZc',
-    appId: '1:922169531651:web:3d0cc9df82ffaa37c01d36',
+    appId: '1:922169531651:web:cb654984e20d0666c01d36',
     messagingSenderId: '922169531651',
     projectId: 'flutter-demo-7afeb',
     authDomain: 'flutter-demo-7afeb.firebaseapp.com',
@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAQXXPF_21jTHGioUC48n0Z1ufukGA937k',
-    appId: '1:922169531651:android:bf0acb3aaddb05b3c01d36',
+    appId: '1:922169531651:android:0b5df1769b15b3a1c01d36',
     messagingSenderId: '922169531651',
     projectId: 'flutter-demo-7afeb',
     storageBucket: 'flutter-demo-7afeb.firebasestorage.app',
