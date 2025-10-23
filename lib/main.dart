@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:stridebase/firebase_options.dart';
 import 'package:stridebase/theme.dart';
 import 'package:stridebase/services/auth_service.dart';
 import 'package:stridebase/screens/auth_screen.dart';
@@ -9,7 +10,9 @@ import 'package:stridebase/services/backend_status.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     debugPrint('Firebase initialized successfully');
   } catch (e) {
     debugPrint('Firebase initialization error: $e');

@@ -1,4 +1,4 @@
-package com.mycompany.CounterApp
+package com.myapp.demoapp
 
 import io.flutter.embedding.android.FlutterActivity
 
