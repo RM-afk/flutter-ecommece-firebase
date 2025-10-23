@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "your-project-id.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project-id.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBNEAaHly0Jb7RMeCSaFJwfQlTlB7i4UZc",
+  authDomain: "flutter-demo-7afeb.firebaseapp.com",
+  projectId: "flutter-demo-7afeb",
+  storageBucket: "flutter-demo-7afeb.firebasestorage.app",
+  messagingSenderId: "922169531651",
+  appId: "1:922169531651:web:3d0cc9df82ffaa37c01d36"
 };
 
 // Initialize Firebase
