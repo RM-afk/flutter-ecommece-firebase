@@ -6,14 +6,16 @@ import 'package:stridebase/services/backend_status.dart';
 class AuthService {
   FirebaseAuth get _auth {
     if (!BackendStatus.isFirebaseAvailable) {
-      throw StateError('Firebase is not connected. Open the Firebase panel in Dreamflow to connect.');
+      throw StateError(
+          'Firebase is not initialized. Please check your Firebase configuration.');
     }
     return FirebaseAuth.instance;
   }
 
   FirebaseFirestore get _firestore {
     if (!BackendStatus.isFirebaseAvailable) {
-      throw StateError('Firebase is not connected. Open the Firebase panel in Dreamflow to connect.');
+      throw StateError(
+          'Firebase is not initialized. Please check your Firebase configuration.');
     }
     return FirebaseFirestore.instance;
   }
@@ -31,11 +33,16 @@ class AuthService {
     return FirebaseAuth.instance.authStateChanges();
   }
 
-  Future<UserModel?> signUp({required String email, required String password, required String name}) async {
+  Future<UserModel?> signUp(
+      {required String email,
+      required String password,
+      required String name}) async {
     if (!BackendStatus.isFirebaseAvailable) {
-      throw StateError('Sign up requires Firebase. Please open the Firebase panel in Dreamflow and complete setup.');
+      throw StateError(
+          'Sign up requires Firebase. Please check your Firebase configuration.');
     }
-    final credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    final credential = await _auth.createUserWithEmailAndPassword(
+        email: email, password: password);
     if (credential.user != null) {
       final now = DateTime.now();
       final userModel = UserModel(
@@ -45,15 +52,20 @@ class AuthService {
         createdAt: now,
         updatedAt: now,
       );
-      await _firestore.collection('users').doc(credential.user!.uid).set(userModel.toJson());
+      await _firestore
+          .collection('users')
+          .doc(credential.user!.uid)
+          .set(userModel.toJson());
       return userModel;
     }
     return null;
   }
 
-  Future<UserModel?> signIn({required String email, required String password}) async {
+  Future<UserModel?> signIn(
+      {required String email, required String password}) async {
     if (!BackendStatus.isFirebaseAvailable) {
-      throw StateError('Sign in requires Firebase. Please open the Firebase panel in Dreamflow and complete setup.');
+      throw StateError(
+          'Sign in requires Firebase. Please check your Firebase configuration.');
     }
     await _auth.signInWithEmailAndPassword(email: email, password: password);
     if (currentUser != null) {

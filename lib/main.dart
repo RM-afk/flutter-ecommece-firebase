@@ -10,8 +10,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await Firebase.initializeApp();
+    debugPrint('Firebase initialized successfully');
   } catch (e) {
     debugPrint('Firebase initialization error: $e');
+    debugPrint(
+        'Please make sure you have added your Firebase configuration files');
   }
   runApp(const MyApp());
 }
@@ -32,7 +35,8 @@ class MyApp extends StatelessWidget {
               stream: AuthService().authStateChanges,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Scaffold(body: Center(child: CircularProgressIndicator()));
+                  return const Scaffold(
+                      body: Center(child: CircularProgressIndicator()));
                 }
                 if (snapshot.hasData) {
                   return const HomeScreen();
